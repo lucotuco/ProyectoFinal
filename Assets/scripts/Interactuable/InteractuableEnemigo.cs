@@ -10,6 +10,7 @@ public class InteractuableEnemigo : Interactable
     public override void Interact()
     {
         base.Interact();
+        Debug.Log("sapeeW");
         GetComponent<Enemy>().VidaActualEnemigo-=daño;
         
     }

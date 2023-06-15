@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public FPSplayer _jugador;
     public SistemaSpawn CantEnemigosMatados;
     public SistemaSpawn EnemigosActual;
-    public int VidaActualEnemigo;
+    [SerializeField] public int VidaActualEnemigo;
     public int VidaEnemigo = 100;
     public Slider barraVida;
     //private Animator _ac;
@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RevisarAtaque();
         barraVida.value = VidaActualEnemigo;
         agente.SetDestination(_jugador.transform.position);
         if(VidaActualEnemigo==0)
@@ -42,6 +43,16 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             EnemigosActual.CantEnemigosActual=EnemigosActual.CantEnemigosActual-1;
             CantEnemigosMatados.CantMatados=CantEnemigosMatados.CantMatados+1;
+        }
+        
+    }
+
+    void RevisarAtaque()
+    {
+        float distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
+        if(distanciaJugador<=1f)
+        {
+            Debug.Log("Puede atacar");
         }
     }
 

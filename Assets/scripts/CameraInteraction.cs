@@ -17,22 +17,22 @@ public class CameraInteraction : MonoBehaviour
     {
        // Debug.DrawLine(camera.position, camera.forward * rayDistance, Color.red);
 
-        /*if(Input.GetButtonDown("Interactable"))
+        if(Input.GetButtonDown("Interactable"))
         {
-           RaycastHit hit;
+            RaycastHit hit;
         if(Physics.Raycast(camera.position,camera.forward,out hit, rayDistance, LayerMask.GetMask("Interactable")))
         {
            // Debug.Log(hit.transform.name);
            hit.transform.GetComponent<Interactable>().Interact();
         } 
-        }*/
+        }
         if(Input.GetButtonDown("Fire1"))
         {
-           RaycastHit hit;
+            RaycastHit hit;
         if(Physics.Raycast(camera.position,camera.forward,out hit, rayDistance, LayerMask.GetMask("Interactable")))
         {
-           //Debug.Log(hit.transform.name);
-          // hit.transform.GetComponent<Interactable>().Interact();
+           // Debug.Log(hit.transform.name);
+           hit.transform.GetComponent<Interactable>().Interact();
         } 
         }
         

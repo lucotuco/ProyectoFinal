@@ -16,12 +16,16 @@ public class FPScamara : MonoBehaviour
     public float sensitivity;
     public bool invertXAxis;
     public bool invertYAxis;
+    public float rotMin;
+    public float rotMax;
 
     void FixedUpdate()
     {
         //lee el mouse
         float h = Input.GetAxis("Mouse X");
         float v = Input.GetAxis("Mouse Y");
+
+        //v = Mathf.Clamp(v,rotMin,rotMax);
 
         // Settings
         h = (invertXAxis) ? (-h) : h;
