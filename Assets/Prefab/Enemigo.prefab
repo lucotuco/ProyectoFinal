@@ -518,6 +518,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -135.68622
       objectReference: {fileID: 0}
@@ -563,6 +575,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 28755d82d0d56f443ace76c824594948, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+--- !u!95 &6758135178894764691 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+  m_PrefabInstance: {fileID: 6758135178902052851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6758135178901652807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400052, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
@@ -639,3 +656,5 @@ MonoBehaviour:
   VidaActualEnemigo: 0
   VidaEnemigo: 100
   barraVida: {fileID: 3608201100312084757}
+  AnimacionAtaque: {fileID: 6758135178894764691}
+  EstaAtacando: 0

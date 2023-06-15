@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int VidaActualEnemigo;
     public int VidaEnemigo = 100;
     public Slider barraVida;
+    public Animator AnimacionAtaque;
+    public bool EstaAtacando    = false;
     //private Animator _ac;
     
     void Awake()
@@ -36,8 +38,9 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         RevisarAtaque();
+        RevisarVidaJugador();
         barraVida.value = VidaActualEnemigo;
-        agente.SetDestination(_jugador.transform.position);
+        
         if(VidaActualEnemigo==0)
         {
             Destroy(gameObject);
@@ -47,13 +50,32 @@ public class Enemy : MonoBehaviour
         
     }
 
+
+    void RevisarVidaJugador ()
+    {
+    
+        agente.SetDestination(_jugador.transform.position);
+    }
+
+
     void RevisarAtaque()
     {
         float distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
-        if(distanciaJugador<=1f)
+        if(distanciaJugador<=3f && EstaAtacando == false)
         {
-            Debug.Log("Puede atacar");
+            Debug.Log("eSYOY ATACADNO:)");
+            Ataca();
         }
+    }
+
+    void Ataca()
+    {
+        EstaAtacando= true;
+        Debug.Log(EstaAtacando);
+        AnimacionAtaque.SetTrigger("Ataca");
+        EstaAtacando= false;
+        Debug.Log(EstaAtacando);
+        AnimacionAtaque.SetTrigger("Ataca");
     }
 
 
