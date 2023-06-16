@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public int VidaEnemigo = 100;
     public Slider barraVida;
     public Animator AnimacionAtaque;
-    public bool EstaAtacando    = false;
+    public bool EstaAtacando= false;
     //private Animator _ac;
     
     void Awake()
@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(EstaAtacando);
         VidaActualEnemigo=VidaEnemigo;
         EnemigosActual = FindObjectOfType<SistemaSpawn>();
         CantEnemigosMatados=FindObjectOfType<SistemaSpawn>();
@@ -66,6 +67,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("eSYOY ATACADNO:)");
             Ataca();
         }
+        
     }
 
     void Ataca()

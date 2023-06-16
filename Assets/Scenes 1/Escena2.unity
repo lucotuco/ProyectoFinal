@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1d12095258c6b428795683779f963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Portal: {fileID: 949116075}
+  siguienteSpawn: {fileID: 949116075}
   Enemigo: {fileID: 6758135178902018343, guid: 3d7a7d21d9ad2c049a0ac86a997b54bb, type: 3}
   CantEnemigosActual: 0
   AreaSpawn:
@@ -1603,7 +1603,7 @@ Transform:
   m_GameObject: {fileID: 1683278399}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -135.21, y: 16.2, z: 432.1706}
-  m_LocalScale: {x: 1, y: 3.3780706, z: 11.056111}
+  m_LocalScale: {x: 1, y: 3.3780706, z: 12.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

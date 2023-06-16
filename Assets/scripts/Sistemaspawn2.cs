@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SistemaSpawn : MonoBehaviour
-{   
+public class Sistemaspawn2 : MonoBehaviour
+{
     public GameObject siguienteSpawn;
     public GameObject Enemigo;
     public int CantEnemigosActual= 1;
