@@ -12,11 +12,10 @@ public class FPSplayer : MonoBehaviour
     private Vector3 camFwd;
     #endregion
     public SistemaSpawn EnemigosActual;
-
-
-    /*public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;*/
+    public float velocidadJugador;
+    public int VidaJugador = 100;
+    public int VidaActualJug;
+    public float velocidadCorrer=10f;
 
     #region Movement
     [Range(1.0f, 10.0f)]
@@ -40,6 +39,12 @@ public class FPSplayer : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
     }
     bool isGrounded= false;
+
+    void Start()
+    {
+        VidaActualJug= VidaJugador;
+        Debug.Log(VidaJugador);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "PuedeSaltar")
@@ -55,20 +60,33 @@ public class FPSplayer : MonoBehaviour
         }*/
         
     }
+   
+    public void RecibirDaño(int damage)
+    {
+        VidaActualJug= VidaActualJug-damage;
+    }
 
     private void Update()
     {
         bool jump = Input.GetButtonDown("Jump");
         
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            velocidadJugador= velocidadCorrer;
+        }
+        else
+        {
+            velocidadJugador= walk_speed;
+        }
+
         // Jump 
         if (jump && isGrounded)
         {
-            
             _rb.AddForce(Vector3.up * jump_force, ForceMode.Impulse);
         
             isGrounded= false;
         }
-// Disparo Arma SIN TERMINAR
+        // Disparo Arma SIN TERMINAR
         /*ItemsControl();
         Shooting = Input.GetKeyDown(KeyCode.Mouse0);*/
     }
@@ -91,7 +109,7 @@ public class FPSplayer : MonoBehaviour
         // Draws a ray to show the direction the player is aiming at
         //Debug.DrawLine(transform.position, transform.position + camFwd * 5f, Color.red);
 
-        float w_speed = (v > 0) ? walk_speed : backwards_walk_speed;
+        float w_speed = (v > 0) ? velocidadJugador : backwards_walk_speed;
         Vector3 move = v * m_CharForward * w_speed + h * m_CharRight * strafe_speed;
         transform.position += move * Time.deltaTime;    // Move the actual player
 

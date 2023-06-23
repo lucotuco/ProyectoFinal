@@ -1289,6 +1289,10 @@ MonoBehaviour:
   Shooting: 0
   _cam: {fileID: 502404399}
   EnemigosActual: {fileID: 513067998}
+  velocidadJugador: 0
+  VidaJugador: 100
+  VidaActualJug: 0
+  velocidadCorrer: 10
   walk_speed: 4.1
   backwards_walk_speed: 6.5
   strafe_speed: 6.7

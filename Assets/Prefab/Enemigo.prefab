@@ -662,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcba9a2f700befb4d95d5901b0426eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Jugador: {fileID: 0}
   _jugador: {fileID: 0}
   CantEnemigosMatados: {fileID: 0}
   EnemigosActual: {fileID: 0}

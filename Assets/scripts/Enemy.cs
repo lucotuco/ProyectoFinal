@@ -6,42 +6,45 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-
+    [SerializeField] public int VidaActualEnemigo;
     NavMeshAgent agente;
-
+    public Transform Jugador;
     public FPSplayer _jugador;
     public SistemaSpawn CantEnemigosMatados;
     public SistemaSpawn EnemigosActual;
-    [SerializeField] public int VidaActualEnemigo;
     public int VidaEnemigo = 100;
     public Slider barraVida;
     public Animator AnimacionAtaque;
     public bool EstaAtacando= false;
-    //private Animator _ac;
+    public FPSplayer vidaJugador;
+    public int daño=20;
     
     void Awake()
     {
         agente = GetComponent<NavMeshAgent>();
-        _jugador= FindObjectOfType<FPSplayer>();
+        _jugador = FindObjectOfType<FPSplayer>();
         
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(EstaAtacando);
+        Jugador = GetComponent<Transform>();
+        vidaJugador = FindObjectOfType<FPSplayer>();
+        AnimacionAtaque = GetComponent<Animator>();
         VidaActualEnemigo=VidaEnemigo;
         EnemigosActual = FindObjectOfType<SistemaSpawn>();
         CantEnemigosMatados=FindObjectOfType<SistemaSpawn>();
+        
     }
 
     // Update is called once per frame
     void Update()
-    {
-        RevisarAtaque();
+    {   
         RevisarVidaJugador();
-        barraVida.value = VidaActualEnemigo;
+        RevisarAtaque();
         
+        barraVida.value = VidaActualEnemigo;
         if(VidaActualEnemigo==0)
         {
             Destroy(gameObject);
@@ -54,30 +57,38 @@ public class Enemy : MonoBehaviour
 
     void RevisarVidaJugador ()
     {
-    
-        agente.SetDestination(_jugador.transform.position);
+        if(vidaJugador.VidaActualJug!=0)
+        {
+            agente.SetDestination(_jugador.transform.position);
+            Vector3 PosJugador= new Vector3(Jugador.position.x, transform.position.y, Jugador.position.z);
+            transform.LookAt(PosJugador);
+        }
+       
     }
 
 
     void RevisarAtaque()
     {
+        if(EstaAtacando) return;
         float distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
         if(distanciaJugador<=3f && EstaAtacando == false)
         {
-            Debug.Log("eSYOY ATACADNO:)");
             Ataca();
+            EstaAtacando= true;
+            Debug.Log("Hola");
         }
-        
+        else
+        {
+            AnimacionAtaque.SetBool("Ataca", false); 
+            EstaAtacando= false;
+        }
+        Debug.Log(EstaAtacando);
     }
 
     void Ataca()
     {
-        EstaAtacando= true;
-        Debug.Log(EstaAtacando);
-        AnimacionAtaque.SetTrigger("Ataca");
-        EstaAtacando= false;
-        Debug.Log(EstaAtacando);
-        AnimacionAtaque.SetTrigger("Ataca");
+        vidaJugador.RecibirDaño(daño);
+        AnimacionAtaque.SetBool("Ataca", true);
     }
 
 
