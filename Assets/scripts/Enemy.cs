@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public Animator AnimacionAtaque;
     public bool EstaAtacando= false;
     public FPSplayer vidaJugador;
-    public int daño=20;
+    public int daño=40;
     
     void Awake()
     {

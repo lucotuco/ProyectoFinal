@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FPSplayer : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class FPSplayer : MonoBehaviour
     public int VidaJugador = 100;
     public int VidaActualJug;
     public float velocidadCorrer=10f;
+    public Slider BarraVida;
 
     #region Movement
     [Range(1.0f, 10.0f)]
@@ -68,6 +70,9 @@ public class FPSplayer : MonoBehaviour
 
     private void Update()
     {
+        BarraVida.GetComponent<Slider>().value=VidaActualJug;
+        chequearVida(VidaActualJug);
+
         bool jump = Input.GetButtonDown("Jump");
         
         if(Input.GetKey(KeyCode.LeftShift))
@@ -91,6 +96,19 @@ public class FPSplayer : MonoBehaviour
         Shooting = Input.GetKeyDown(KeyCode.Mouse0);*/
     }
 
+    public bool chequearVida(int VidaActualJug)
+    {   
+        if(VidaActualJug<=0)
+        {
+            Debug.Log("muerto");
+            return true;
+        }
+        else
+        {
+            Debug.Log("no muerto");
+            return false;
+        }
+    }
     void FixedUpdate()
     {
         // Gets the input
