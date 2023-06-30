@@ -71,7 +71,7 @@ public class FPSplayer : MonoBehaviour
 
     private void Update()
     {
-        BarraVida.GetComponent<Slider>().value=VidaActualJug;
+        //BarraVida.GetComponent<Slider>().value=VidaActualJug;
         chequearVida(VidaActualJug);
 
         bool jump = Input.GetButtonDown("Jump");
