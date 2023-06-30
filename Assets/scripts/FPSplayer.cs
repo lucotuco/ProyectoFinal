@@ -45,7 +45,7 @@ public class FPSplayer : MonoBehaviour
     void Start()
     {
         VidaActualJug= VidaJugador;
-        Debug.Log(VidaJugador);
+        //Debug.Log(VidaJugador);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -65,6 +65,7 @@ public class FPSplayer : MonoBehaviour
    
     public void RecibirDaño(int damage)
     {
+        
         VidaActualJug= VidaActualJug-damage;
     }
 

@@ -5,10 +5,7 @@ using UnityEngine;
 public class AtaqueMachete : MonoBehaviour
 {
     
-    private void Start()
-    {
-      
-    }
+    public GameObject machete;
     
     private void Update()
     {
@@ -16,7 +13,7 @@ public class AtaqueMachete : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetTrigger("MacheteAccion"); 
             //Filo.GetComponent<BoxCollider>().isTrigger= true;
-            StartCoroutine(FinAtaque());
+            //StartCoroutine(FinAtaque());
         }
     }
 

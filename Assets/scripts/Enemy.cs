@@ -59,9 +59,9 @@ public class Enemy : MonoBehaviour
     {
         if(vidaJugador.VidaActualJug!=0)
         {
-            agente.SetDestination(_jugador.transform.position);
             Vector3 PosJugador= new Vector3(Jugador.position.x, transform.position.y, Jugador.position.z);
             transform.LookAt(PosJugador);
+            agente.SetDestination(_jugador.transform.position);
         }
        
     }
@@ -69,16 +69,20 @@ public class Enemy : MonoBehaviour
 
     void RevisarAtaque()
     {
-        if(EstaAtacando) return;
+        if(EstaAtacando ==  true) 
+        {
+            return;
+        }
         float distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
-        if(distanciaJugador<=3f && EstaAtacando == false)
+        if(distanciaJugador<=3 && EstaAtacando == false)
         {
             Ataca();
             EstaAtacando= true;
-            Debug.Log("Hola");
+            Debug.Log("esta atacando");
         }
         else
         {
+            Debug.Log("entro al else");
             AnimacionAtaque.SetBool("Ataca", false); 
             EstaAtacando= false;
         }
@@ -89,12 +93,9 @@ public class Enemy : MonoBehaviour
     {
         vidaJugador.RecibirDaño(daño);
         AnimacionAtaque.SetBool("Ataca", true);
+        EstaAtacando= false;
     }
-
-
-
-
-    
+ 
 }
     /*public void Damage(int dmg) {
         if(health > 0) { 
