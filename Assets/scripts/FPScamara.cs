@@ -25,7 +25,7 @@ public class FPScamara : MonoBehaviour
         float h = Input.GetAxis("Mouse X");
         float v = Input.GetAxis("Mouse Y");
 
-        //v = Mathf.Clamp(v,rotMin,rotMax);
+        v = Mathf.Clamp(v,rotMin,rotMax);
 
         // Settings
         h = (invertXAxis) ? (-h) : h;

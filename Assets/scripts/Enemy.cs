@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public int VidaEnemigo = 100;
     public Slider barraVida;
     public Animator AnimacionAtaque;
-    public bool EstaAtacando= false;
+    public bool EstaAtacando;
     public FPSplayer vidaJugador;
     public int daño=40;
     
@@ -76,24 +76,25 @@ public class Enemy : MonoBehaviour
         float distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
         if(distanciaJugador<=3 && EstaAtacando == false)
         {
-            Ataca();
             EstaAtacando= true;
-            Debug.Log("esta atacando");
+            Ataca();
+            //Debug.Log("esta atacando");
+            
         }
         else
         {
-            Debug.Log("entro al else");
+            //Debug.Log("entro al else");
             AnimacionAtaque.SetBool("Ataca", false); 
-            EstaAtacando= false;
+            EstaAtacando = false;
         }
-        Debug.Log(EstaAtacando);
+        //Debug.Log(EstaAtacando);
     }
 
     void Ataca()
     {
-        vidaJugador.RecibirDaño(daño);
         AnimacionAtaque.SetBool("Ataca", true);
-        EstaAtacando= false;
+        vidaJugador.RecibirDaño(daño);
+        
     }
  
 }

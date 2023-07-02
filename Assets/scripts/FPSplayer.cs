@@ -18,6 +18,7 @@ public class FPSplayer : MonoBehaviour
     public int VidaActualJug;
     public float velocidadCorrer=10f;
     public Slider BarraVida;
+    public Enemy Enemigo;
 
     #region Movement
     [Range(1.0f, 10.0f)]
@@ -39,6 +40,7 @@ public class FPSplayer : MonoBehaviour
         EnemigosActual = FindObjectOfType<SistemaSpawn>();
         _rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
+        Enemigo = FindObjectOfType<Enemy>();
     }
     bool isGrounded= false;
 
@@ -65,13 +67,14 @@ public class FPSplayer : MonoBehaviour
    
     public void RecibirDaño(int damage)
     {
-        
         VidaActualJug= VidaActualJug-damage;
+        //Debug.Log(Enemigo.EstaAtacando);
+        //Enemigo.EstaAtacando= false;
     }
 
     private void Update()
     {
-        //BarraVida.GetComponent<Slider>().value=VidaActualJug;
+        BarraVida.GetComponent<Slider>().value=VidaActualJug;
         chequearVida(VidaActualJug);
 
         bool jump = Input.GetButtonDown("Jump");
