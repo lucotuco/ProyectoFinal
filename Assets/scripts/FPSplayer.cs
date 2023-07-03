@@ -19,6 +19,7 @@ public class FPSplayer : MonoBehaviour
     public float velocidadCorrer=10f;
     public Slider BarraVida;
     public Enemy Enemigo;
+    [SerializeField] public int daño;
 
     #region Movement
     [Range(1.0f, 10.0f)]
@@ -65,16 +66,17 @@ public class FPSplayer : MonoBehaviour
         
     }
    
-    public void RecibirDaño(int damage)
+    public void RecibirDaño(int damage,bool EstaAtacando)
     {
         VidaActualJug= VidaActualJug-damage;
-        //Debug.Log(Enemigo.EstaAtacando);
-        //Enemigo.EstaAtacando= false;
+        Debug.Log("lol"+EstaAtacando);
+        EstaAtacando = false;
+        Debug.Log("lol"+EstaAtacando);
     }
 
     private void Update()
     {
-        BarraVida.GetComponent<Slider>().value=VidaActualJug;
+        //BarraVida.GetComponent<Slider>().value=VidaActualJug;
         chequearVida(VidaActualJug);
 
         bool jump = Input.GetButtonDown("Jump");

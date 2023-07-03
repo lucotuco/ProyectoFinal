@@ -15,9 +15,10 @@ public class Enemy : MonoBehaviour
     public int VidaEnemigo = 100;
     public Slider barraVida;
     public Animator AnimacionAtaque;
-    public bool EstaAtacando;
+    [SerializeField] public bool EstaAtacando;
     public FPSplayer vidaJugador;
-    public int daño=40;
+    public int daño;
+    public int DistanciaAtaque;
     
     void Awake()
     {
@@ -43,17 +44,19 @@ public class Enemy : MonoBehaviour
     {   
         RevisarVidaJugador();
         RevisarAtaque();
-        
+        RevisarVidaEnemigo();
+    }
+
+    void RevisarVidaEnemigo()
+    {
         barraVida.value = VidaActualEnemigo;
-        if(VidaActualEnemigo==0)
+        if(VidaActualEnemigo<=0)
         {
             Destroy(gameObject);
             EnemigosActual.CantEnemigosActual=EnemigosActual.CantEnemigosActual-1;
             CantEnemigosMatados.CantMatados=CantEnemigosMatados.CantMatados+1;
         }
-        
     }
-
 
     void RevisarVidaJugador ()
     {
@@ -69,31 +72,39 @@ public class Enemy : MonoBehaviour
 
     void RevisarAtaque()
     {
-        if(EstaAtacando ==  true) 
-        {
-            return;
-        }
+        if(EstaAtacando ==  true) {return;}
+        Debug.Log(EstaAtacando);
         float distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
-        if(distanciaJugador<=3 && EstaAtacando == false)
+        if(distanciaJugador<=3)
         {
             EstaAtacando= true;
-            Ataca();
-            //Debug.Log("esta atacando");
-            
+            Debug.Log("entro al if");
+            StartCoroutine(Ataca());
+    
         }
         else
         {
             //Debug.Log("entro al else");
-            AnimacionAtaque.SetBool("Ataca", false); 
             EstaAtacando = false;
+            AnimacionAtaque.SetBool("Ataca", false); 
         }
-        //Debug.Log(EstaAtacando);
+        
+        
+        
+        
     }
-
-    void Ataca()
+    IEnumerator Ataca()
     {
         AnimacionAtaque.SetBool("Ataca", true);
-        vidaJugador.RecibirDaño(daño);
+        Debug.Log("Corrutine");
+        yield return new WaitForSeconds(0.2f);
+        vidaJugador.RecibirDaño(daño,EstaAtacando);
+        //Filo.GetComponent<BoxCollider>().isTrigger= false;
+    }
+    void Atacas()
+    {
+        AnimacionAtaque.SetBool("Ataca", true);
+        vidaJugador.RecibirDaño(daño,EstaAtacando);
         
     }
  

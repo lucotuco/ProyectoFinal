@@ -6,7 +6,7 @@ public class CameraInteraction : MonoBehaviour
 {
     private new Transform camera;
     public float rayDistance;
-    public GameObject machete;
+    //public GameObject machete;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +28,7 @@ public class CameraInteraction : MonoBehaviour
            hit.transform.GetComponent<Interactable>().Interact();
         } 
         }
-        if(Input.GetButtonDown("Fire1"))
+        /*if(Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
             machete.GetComponent<Animator>().SetTrigger("MacheteAccion");
@@ -37,7 +37,7 @@ public class CameraInteraction : MonoBehaviour
         {
             StartCoroutine(FinAtaque(hit));
         } 
-        }
+        }*/ 
         
         
     }

@@ -14,6 +14,7 @@ public class SistemaSpawn : MonoBehaviour
     public Transform[] AreaSpawn;
     public FPSplayer EnemigosMatados;
     public int CantMatados=0;
+    public int sapwnpos;
 
     // Start is called before the first frame update
     void Start()
@@ -26,36 +27,59 @@ public class SistemaSpawn : MonoBehaviour
     }
     void Update()
     {
-        if(Spawneando== false && CantEnemigosActual==0)
+        if(Spawneando == false && CantEnemigosActual ==0 && ContadorOleadas!= 4)
         {
             Debug.Log("Spawneando");
-            StartCoroutine(SpawnerWave(EnemigosXoleada));
+            StartCoroutine(SpawnerWave());
         }
         
-        if(CantMatados==3)
+        if(ContadorOleadas==4)
         {
             siguienteSpawn.SetActive(true);
         }
         
     }
-    IEnumerator SpawnerWave(int EnemigosXoleada)
+    IEnumerator SpawnerWave()
     {
         Spawneando=true;
         yield return new WaitForSeconds(3);
+        if(ContadorOleadas==3)
+        {
+            EnemigosXoleada=1;
+        }
         for(int i=0; i<EnemigosXoleada; i++)
         {
             SapawnEnemy(ContadorOleadas);
         }
         ContadorOleadas+=1;
-        EnemigosXoleada=EnemigosXoleada +3;
+        EnemigosXoleada+=3;
         Spawneando=false;
         yield break;
     }
     
     void SapawnEnemy(int ContadorOleadas)
     {
-        int sapwnpos = Random.Range(0, AreaSpawn.Length);
-        Instantiate(Enemigo[EnemyType], AreaSpawn[sapwnpos].transform.position, AreaSpawn[sapwnpos].transform.rotation);
-        CantEnemigosActual++;
+        switch (ContadorOleadas)
+        {
+            case 1:
+                EnemyType=0;
+                 sapwnpos = Random.Range(0, AreaSpawn.Length);
+                Instantiate(Enemigo[EnemyType], AreaSpawn[sapwnpos].transform.position, AreaSpawn[sapwnpos].transform.rotation);
+                CantEnemigosActual++;
+                break;
+            case 3:
+                EnemyType=1;
+                 sapwnpos = Random.Range(0, AreaSpawn.Length);
+                Instantiate(Enemigo[EnemyType], AreaSpawn[sapwnpos].transform.position, AreaSpawn[sapwnpos].transform.rotation);
+                CantEnemigosActual++;
+                break;
+           default:
+                EnemyType=0;
+                 sapwnpos = Random.Range(0, AreaSpawn.Length);
+                Instantiate(Enemigo[EnemyType], AreaSpawn[sapwnpos].transform.position, AreaSpawn[sapwnpos].transform.rotation);
+                CantEnemigosActual++;
+                break;
+        }
+        
     }
 }

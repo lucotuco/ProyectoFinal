@@ -11,7 +11,7 @@ public class AtaqueMachete : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            gameObject.GetComponent<Animator>().SetTrigger("MacheteAccion"); 
+            //gameObject.GetComponent<Animator>().SetTrigger("MacheteAccion"); 
             //Filo.GetComponent<BoxCollider>().isTrigger= true;
             //StartCoroutine(FinAtaque());
         }
