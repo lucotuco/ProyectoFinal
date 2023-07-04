@@ -66,17 +66,18 @@ public class FPSplayer : MonoBehaviour
         
     }
    
-    public void RecibirDaño(int damage,bool EstaAtacando)
+    public void RecibirDaño(int damage)
     {
         VidaActualJug= VidaActualJug-damage;
-        Debug.Log("lol"+EstaAtacando);
+        /*Debug.Log("lol"+EstaAtacando);
         EstaAtacando = false;
         Debug.Log("lol"+EstaAtacando);
+        return EstaAtacando;    */
     }
 
     private void Update()
     {
-        //BarraVida.GetComponent<Slider>().value=VidaActualJug;
+        BarraVida.GetComponent<Slider>().value=VidaActualJug;
         chequearVida(VidaActualJug);
 
         bool jump = Input.GetButtonDown("Jump");
