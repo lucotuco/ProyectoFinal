@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraInteraction : MonoBehaviour
 {
     private new Transform camera;
     public float rayDistance;
     public GameObject machete;
+    public Scene scene;
+    public string EscenaActual;
+    
     // Start is called before the first frame update
     void Start()
     {
         camera=transform.Find("Camera");
-        gameObject.GetComponent<GameObject>();
+        if(scene.name=="Escena2")
+        {
+            machete = gameObject.GetComponent<GameObject>();
+        }
     }
 
     // Update is called once per frame
@@ -28,27 +35,50 @@ public class CameraInteraction : MonoBehaviour
            hit.transform.GetComponent<Interactable>().Interact();
         } 
         }
-        void OnLevelWasLoaded(int level)
+        
+        if(EscenaActual=="Escena2")
         {
-            string levelName = Application.LoadedLevelName;
-            if(levelName =="level 2")
+            
+            if(Input.GetButtonDown("Fire1"))
             {
-                Debug.Log(levelName);
+                
+                RaycastHit hit;
+                machete.GetComponent<Animator>().SetTrigger("MacheteAccion");
+                
+                if(Physics.Raycast(camera.position,camera.forward,out hit, rayDistance, LayerMask.GetMask("Interactable")))
+                {
+                    StartCoroutine(FinAtaque(hit));
+                } 
             }
         }
-        if(Input.GetButtonDown("Fire1"))
-        {
-            RaycastHit hit;
-            machete.GetComponent<Animator>().SetTrigger("MacheteAccion");
-            
-        if(Physics.Raycast(camera.position,camera.forward,out hit, rayDistance, LayerMask.GetMask("Interactable")))
-        {
-            StartCoroutine(FinAtaque(hit));
-        } 
-        }
+        
         
         
     }
+
+   
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        Debug.Log("Loaded scene: " + scene.name);
+        if(scene.name=="Escena2")
+        {
+            EscenaActual=scene.name;
+            machete = gameObject.GetComponent<GameObject>();
+        }
+        
+
+    }
+
     IEnumerator FinAtaque(RaycastHit hit)
     {
         Debug.Log("Ataque");

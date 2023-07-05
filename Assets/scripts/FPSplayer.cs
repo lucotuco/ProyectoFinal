@@ -20,6 +20,7 @@ public class FPSplayer : MonoBehaviour
     public Slider BarraVida;
     public Enemy Enemigo;
     [SerializeField] public int daño;
+    public CameraInteraction LaEscenaActual;
 
     #region Movement
     [Range(1.0f, 10.0f)]
@@ -42,42 +43,22 @@ public class FPSplayer : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         Enemigo = FindObjectOfType<Enemy>();
+        LaEscenaActual = FindObjectOfType<CameraInteraction>();
     }
     bool isGrounded= false;
 
     void Start()
     {
         VidaActualJug= VidaJugador;
-        //Debug.Log(VidaJugador);
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "PuedeSaltar")
-        {
-            isGrounded= true;
-        }
-        /*if(collision.gameObject.tag == "Enemigo")
-        {
-            Destroy(collision.transform.gameObject);
-            EnemigosActual.CantEnemigosActual=EnemigosActual.CantEnemigosActual-1;
-            CantMatados++;
-            Debug.Log(EnemigosActual.CantEnemigosActual);
-        }*/
-        
-    }
-   
-    public void RecibirDaño(int damage)
-    {
-        VidaActualJug= VidaActualJug-damage;
-        /*Debug.Log("lol"+EstaAtacando);
-        EstaAtacando = false;
-        Debug.Log("lol"+EstaAtacando);
-        return EstaAtacando;    */
-    }
-
+    
     private void Update()
     {
-        BarraVida.GetComponent<Slider>().value=VidaActualJug;
+        if(LaEscenaActual.EscenaActual=="Escena2")
+        {
+            BarraVida.GetComponent<Slider>().value=VidaActualJug;
+        }
+        
         chequearVida(VidaActualJug);
 
         bool jump = Input.GetButtonDown("Jump");
@@ -101,6 +82,19 @@ public class FPSplayer : MonoBehaviour
         // Disparo Arma SIN TERMINAR
         /*ItemsControl();
         Shooting = Input.GetKeyDown(KeyCode.Mouse0);*/
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "PuedeSaltar")
+        {
+            isGrounded= true;
+        }        
+    }
+   
+    public void RecibirDaño(int damage)
+    {
+        VidaActualJug= VidaActualJug-damage;
     }
 
     public bool chequearVida(int VidaActualJug)

@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public bool EstaAtacando;
     public FPSplayer vidaJugador;
     public int daño;
+    public float distanciaAtaque;
     public float distanciaJugador;
     public float AttackCooldown;
     float lastAtackTime;
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AttackCooldown=2;
+        AttackCooldown=1;
         Jugador = GetComponent<Transform>();
         vidaJugador = FindObjectOfType<FPSplayer>();
         AnimacionAtaque = GetComponent<Animator>();
@@ -77,7 +78,7 @@ public class Enemy : MonoBehaviour
     {
         distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
         
-        if(distanciaJugador<=3)
+        if(distanciaJugador<=distanciaAtaque)
         {
         if (Time.time - lastAtackTime < AttackCooldown) return;
 

@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d2d4176f8b8f24b986172b587e35c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 10
+  "Da\xF1oJugador": {fileID: 0}
 --- !u!195 &-3706744511056674682
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -673,3 +673,6 @@ MonoBehaviour:
   EstaAtacando: 0
   vidaJugador: {fileID: 0}
   "da\xF1o": 20
+  distanciaAtaque: 3
+  distanciaJugador: 0
+  AttackCooldown: 0

@@ -642,7 +642,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 10
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -673,3 +673,6 @@ MonoBehaviour:
   EstaAtacando: 0
   vidaJugador: {fileID: 0}
   "da\xF1o": 40
+  distanciaAtaque: 5
+  distanciaJugador: 0
+  AttackCooldown: 1

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1388,6 +1388,7 @@ GameObject:
   - component: {fileID: 1918900919}
   - component: {fileID: 1918900920}
   - component: {fileID: 1918900918}
+  - component: {fileID: 1918900922}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -1471,8 +1472,9 @@ MonoBehaviour:
   VidaActualJug: 0
   velocidadCorrer: 10
   BarraVida: {fileID: 0}
-  Enemigo: {fileID: 0}
+  Enemigo: {fileID: 445337245583356585, guid: 3d7a7d21d9ad2c049a0ac86a997b54bb, type: 3}
   "da\xF1o": 0
+  LaEscenaActual: {fileID: 0}
   walk_speed: 4.1
   backwards_walk_speed: 6.5
   strafe_speed: 6.7
@@ -1510,6 +1512,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayDistance: 2
+  machete: {fileID: 4950618011880232108, guid: c7b1ce882b3cd31478ba90a683f87243, type: 3}
+  scene:
+    m_Handle: 0
 --- !u!114 &1918900921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,6 +1532,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   currentWeapon: {fileID: 0}
+--- !u!114 &1918900922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918900911}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5f25f9ee0dbf1418eac597752f0696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene:
+    m_Handle: 0
 --- !u!1 &1959666543
 GameObject:
   m_ObjectHideFlags: 0
