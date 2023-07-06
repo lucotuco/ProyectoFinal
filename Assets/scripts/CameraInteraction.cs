@@ -15,10 +15,6 @@ public class CameraInteraction : MonoBehaviour
     void Start()
     {
         camera=transform.Find("Camera");
-        if(scene.name=="Escena2")
-        {
-            machete = gameObject.GetComponent<GameObject>();
-        }
     }
 
     // Update is called once per frame
@@ -72,8 +68,9 @@ public class CameraInteraction : MonoBehaviour
         Debug.Log("Loaded scene: " + scene.name);
         if(scene.name=="Escena2")
         {
+            Debug.Log("entreeeeeeeeeeeeee2");
             EscenaActual=scene.name;
-            machete = gameObject.GetComponent<GameObject>();
+            machete = GameObject.Find("MAchetePivot");
         }
         
 

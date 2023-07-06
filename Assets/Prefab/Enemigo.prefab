@@ -585,6 +585,22 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.19600847
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.016807556
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.5469464
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.79280114
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
 --- !u!95 &6758135178894764691 stripped

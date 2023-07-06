@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
 
     void RevisarVidaJugador ()
     {
-        if(vidaJugador.VidaActualJug!=0)
+        if(vidaJugador.VidaActualJug>0)
         {
             Vector3 PosJugador= new Vector3(Jugador.position.x, transform.position.y, Jugador.position.z);
             transform.LookAt(PosJugador);
