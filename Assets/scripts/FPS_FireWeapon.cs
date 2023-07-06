@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -92,3 +92,4 @@ public class FPS_FireWeapon : FPS_Weapon
     public int GetCartridgeSize() { return cartridgeSize; }
     public int GetCurrentBullets() { return currentBullets; }
 }
+*/  

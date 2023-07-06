@@ -672,7 +672,7 @@ MonoBehaviour:
   AnimacionAtaque: {fileID: 6758135178894764691}
   EstaAtacando: 0
   vidaJugador: {fileID: 0}
-  "da\xF1o": 40
+  "da\xF1o": 27
   distanciaAtaque: 5
   distanciaJugador: 0
   AttackCooldown: 1
