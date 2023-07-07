@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class CameraInteraction : MonoBehaviour
 {
-    private new Transform camera;
+    public new Transform camera;
     public float rayDistance;
     public GameObject machete;
     public Scene scene;
     public string EscenaActual;
     
+    
     // Start is called before the first frame update
     void Start()
     {
-        camera=transform.Find("Camera");
+        
     }
 
     // Update is called once per frame

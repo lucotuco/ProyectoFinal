@@ -14,7 +14,7 @@ public class FPSplayer : MonoBehaviour
     #endregion
     public SistemaSpawn EnemigosActual;
     public float velocidadJugador;
-    public int VidaJugador = 100;
+    public int VidaJugador = 1000;
     public int VidaActualJug;
     public float velocidadCorrer=10f;
     public Slider BarraVida;
@@ -36,6 +36,23 @@ public class FPSplayer : MonoBehaviour
     public PistolController pistol;
 
 
+    
+    public float speedH;
+    public float speedV;
+    float ejeV, ejeH;
+
+    public float rotmax;
+    public float rotMin;
+
+    //Para Controlar La al Player
+    CharacterController cc;
+
+    public float jump;
+    public float gravity;
+
+    Vector3 mov = Vector3.zero;
+
+
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -49,11 +66,13 @@ public class FPSplayer : MonoBehaviour
 
     void Start()
     {
+         cc = GetComponent<CharacterController>();
         VidaActualJug= VidaJugador;
     }
     
     private void Update()
     {
+        lol();
         if(LaEscenaActual.EscenaActual=="Escena2")
         {
             BarraVida.GetComponent<Slider>().value=VidaActualJug;
@@ -109,6 +128,33 @@ public class FPSplayer : MonoBehaviour
             Debug.Log("no muerto");
             return false;
         }
+    }
+
+    public void lol()
+    {
+        ejeH = speedH * Input.GetAxis("Mouse X");
+        ejeV += speedV * Input.GetAxis("Mouse Y");
+
+        _cam.transform.localEulerAngles = new Vector3(-ejeV, 0, 0);
+        transform.Rotate(0, ejeH, 0);
+        ejeV = Mathf.Clamp(ejeV, rotMin, rotmax);
+
+
+        //Para Controlar el Movimiento
+        if (cc.isGrounded)
+        {
+            mov = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+
+            mov = transform.TransformDirection(mov) * velocidadJugador;
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                mov.y = jump;
+            }
+        }
+
+        mov.y -= gravity * Time.deltaTime;
+        cc.Move(mov * Time.deltaTime);
     }
     void FixedUpdate()
     {

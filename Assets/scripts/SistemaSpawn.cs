@@ -27,16 +27,16 @@ public class SistemaSpawn : MonoBehaviour
     }
     void Update()
     {
-        if(Spawneando == false && CantEnemigosActual ==0 && ContadorOleadas!= 4)
+        if(Spawneando == false && CantEnemigosActual ==0 && ContadorOleadas!= 5)
         {
             Debug.Log("Spawneando");
             StartCoroutine(SpawnerWave());
         }
         
-        if(ContadorOleadas==4)
+        /*if(ContadorOleadas==4)
         {
             siguienteSpawn.SetActive(true);
-        }
+        }*/
         
     }
     IEnumerator SpawnerWave()
@@ -72,6 +72,10 @@ public class SistemaSpawn : MonoBehaviour
                  sapwnpos = Random.Range(0, AreaSpawn.Length);
                 Instantiate(Enemigo[EnemyType], AreaSpawn[sapwnpos].transform.position, AreaSpawn[sapwnpos].transform.rotation);
                 CantEnemigosActual++;
+                break;
+
+            case 4:
+                siguienteSpawn.SetActive(true);
                 break;
            default:
                 EnemyType=0;

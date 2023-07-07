@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -376,7 +376,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419716214}
-  m_LocalRotation: {x: -0, y: -0.9999806, z: -0, w: 0.0062372684}
+  m_LocalRotation: {x: -0, y: -0.99998057, z: -0, w: 0.006237209}
   m_LocalPosition: {x: 0, y: 0.68633795, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1438,6 +1438,7 @@ GameObject:
   - component: {fileID: 1918900914}
   - component: {fileID: 1918900920}
   - component: {fileID: 1918900918}
+  - component: {fileID: 1918900921}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -1528,6 +1529,12 @@ MonoBehaviour:
   strafe_speed: 6.7
   jump_force: 3.8
   pistol: {fileID: 0}
+  speedH: 2
+  speedV: 2
+  rotmax: 65
+  rotMin: -65
+  jump: 8
+  gravity: 20
 --- !u!114 &1918900920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1540,11 +1547,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc4e87dfd6d6da4491798f43ffda715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 419716215}
   rayDistance: 2
   machete: {fileID: 4950618011880232108, guid: c7b1ce882b3cd31478ba90a683f87243, type: 3}
   scene:
     m_Handle: 0
   EscenaActual: 
+--- !u!143 &1918900921
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918900911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2021368652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99b33eac0724072428c0386e01d55445, type: 3}
