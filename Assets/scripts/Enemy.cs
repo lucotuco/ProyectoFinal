@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(SeDespierta());
         AttackCooldown=1;
         Jugador = GetComponent<Transform>();
         vidaJugador = FindObjectOfType<FPSplayer>();
@@ -46,9 +47,19 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        
         RevisarVidaJugador();
         RevisarAtaque();
         RevisarVidaEnemigo();
+    }
+
+    IEnumerator SeDespierta()
+    {
+        Debug.Log("Corrutine"); 
+        yield return new WaitForSeconds(2);
+        AnimacionAtaque.SetBool("caminando", true);
+        //vidaJugador.RecibirDaño(daño,EstaAtacando);
+        //Filo.GetComponent<BoxCollider>().isTrigger= false;
     }
 
     void RevisarVidaEnemigo()
