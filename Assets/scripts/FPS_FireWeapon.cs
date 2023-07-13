@@ -1,4 +1,4 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +13,7 @@ public class FPS_FireWeapon : FPS_Weapon
     private int currentBullets;
 
     public Transform shootSrc;
+    
     public GameObject bulletPrefab;
 
     public AudioClip reloadSnd;
@@ -33,25 +34,25 @@ public class FPS_FireWeapon : FPS_Weapon
     // Update is called once per frame
     void Update()
     {
-        FPS_UI.s.UpdateAmmoText(currentBullets, cartridgeSize);
+        //FPS_UI.s.UpdateAmmoText(currentBullets, cartridgeSize);
     }
 
     public override void Fire()
     {
         if (canShoot)
         {
-            Vector3 shootPos = transform.parent.parent.position + _player.GetComponent<FPScamara>().GetForwardDirection() * 1.0f + new Vector3(0, -0.1f, 0);
+            Vector3 shootPos = transform.parent.parent.position + _player.GetComponent<FPSplayer>().GetForwardDirection() * 1.0f + new Vector3(0, -0.1f, 0);
             // Create the bullet, sets the damage it will cause, and add some velocity to it
             GameObject go = Instantiate(bulletPrefab, shootPos, Quaternion.Euler(90, 0, 0));
             Rigidbody rb = go.GetComponent<Rigidbody>();
             go.GetComponent<Bullet>().SetDamage(damage);
 
-            rb.velocity = _player.GetComponent<FPScamara>().GetForwardDirection() * 40.0f;
+            rb.velocity = _player.GetComponent<FPSplayer>().GetForwardDirection() * 40.0f;
 
             Debug.Log("Firing " + transform.name);
 
             // Plays weapon's shooting animation
-            _ac.Play("Shoot");
+            //_ac.Play("Shoot");
 
             currentBullets--;
 
@@ -92,4 +93,3 @@ public class FPS_FireWeapon : FPS_Weapon
     public int GetCartridgeSize() { return cartridgeSize; }
     public int GetCurrentBullets() { return currentBullets; }
 }
-*/  

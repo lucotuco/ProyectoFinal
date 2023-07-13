@@ -1,4 +1,4 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,4 +35,4 @@ public class FPS_UI : MonoBehaviour
         string s = (cartridgeSize > 0) ? (currentBullets + " / " + cartridgeSize) : "";
         ammoText.text = s;
     }
-}*/
+}
