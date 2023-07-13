@@ -26,6 +26,7 @@ public class FPS_ShootController : MonoBehaviour
 
         if (mouseLeftClick || mouseLeftHold)
         {
+            
             currentWeapon.Fire();
         }
 
@@ -35,6 +36,7 @@ public class FPS_ShootController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            Debug.Log("recarga");
             currentWeapon.Reload();
         }
 

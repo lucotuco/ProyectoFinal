@@ -98,9 +98,7 @@ public class FPSplayer : MonoBehaviour
         
             isGrounded= false;
         }
-        // Disparo Arma SIN TERMINAR
-        ItemsControl();
-        Shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -181,16 +179,7 @@ public class FPSplayer : MonoBehaviour
         
     }
 
-    public void ItemsControl()
-    {
-        if(pistol != null )
-        {   
-            if(Shooting)
-            {
-                pistol.Shoot(); 
-            }
-        }
-    }
+    
 
     public Vector3 GetForwardDirection() {
         return _cam.transform.forward;

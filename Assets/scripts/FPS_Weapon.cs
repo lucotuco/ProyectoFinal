@@ -8,8 +8,8 @@ public abstract class FPS_Weapon : MonoBehaviour
     public AudioClip shootSnd;
 
 
-   // protected Animator _ac;
-    protected GameObject _player;
+    protected Animator _ac;
+    public FPSplayer _player;
 
     [Tooltip("Times per second this weapon can be shot/activated.")]
     public float cadence;   
@@ -27,9 +27,9 @@ public abstract class FPS_Weapon : MonoBehaviour
 
     protected void Awake()
     {
-        //_ac = GetComponent<Animator>();
+        _ac = GetComponent<Animator>();
        // _as = GetComponent<AudioSource>();
-        _player = transform.parent.parent.parent.gameObject;
+        _player = _player.GetComponent<FPSplayer>();
     }
 
     // Start is called before the first frame update
@@ -48,7 +48,7 @@ public abstract class FPS_Weapon : MonoBehaviour
 
     public virtual void ShowWeapon() {
 
-        //_ac.Play("Show");
+        _ac.Play("Show");
 
         canShoot = false;
         Invoke("EnableShoot", equipTime);
