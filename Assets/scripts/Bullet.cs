@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     private float lifetime = 3.0f;
     private int damage;
+    private float power = 50f;
+    private Vector3 direction;
     
 
 
@@ -18,15 +20,19 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //transform.position += direction * power * Time.deltaTime;
     }
 
+    public void SetDirection(Vector3 dir)
+    {
+        direction = dir.normalized;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Enemigo")
         {
-            Destroy(collision.transform.gameObject);
+            DestroyBullet();
             Debug.Log("sadsa");
         }
     }

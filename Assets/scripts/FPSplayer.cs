@@ -118,12 +118,12 @@ public class FPSplayer : MonoBehaviour
     {   
         if(VidaActualJug<=0)
         {
-            Debug.Log("muerto");
+            //Debug.Log("muerto");
             return true;
         }
         else
         {
-            Debug.Log("no muerto");
+            //Debug.Log("no muerto");
             return false;
         }
     }

@@ -51,6 +51,15 @@ public class Enemy : MonoBehaviour
         RevisarVidaJugador();
         RevisarAtaque();
         RevisarVidaEnemigo();
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "bala")
+        {
+            Debug.Log("entro");
+        }        
     }
 
     IEnumerator SeDespierta()
@@ -61,6 +70,7 @@ public class Enemy : MonoBehaviour
         //vidaJugador.RecibirDaño(daño,EstaAtacando);
         //Filo.GetComponent<BoxCollider>().isTrigger= false;
     }
+    
 
     void RevisarVidaEnemigo()
     {

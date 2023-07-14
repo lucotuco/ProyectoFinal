@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1258202914804222872}
   - component: {fileID: 4534632235288620578}
   - component: {fileID: 3673184352549945593}
-  m_Layer: 0
+  - component: {fileID: -6127648721653246623}
+  - component: {fileID: -4071393018774045161}
+  m_Layer: 6
   m_Name: Bullet Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,6 +66,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 50
   lifeTime: 3
+--- !u!135 &-6127648721653246623
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4508103908841587949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.02492262
+  m_Center: {x: 0, y: 0, z: 0.00003280863}
+--- !u!114 &-4071393018774045161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4508103908841587949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c1e64176f3b414cafabced48343e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6889835355606442479
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +103,7 @@ GameObject:
   - component: {fileID: 5077775768707740944}
   - component: {fileID: 9199656850713723532}
   - component: {fileID: 817430056943943040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

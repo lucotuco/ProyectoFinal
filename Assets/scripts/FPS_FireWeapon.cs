@@ -44,30 +44,33 @@ public class FPS_FireWeapon : FPS_Weapon
         {   
            //Debug.Log(_player.GetForwardDirection());
 
-            Vector3 shootPos = transform.parent.parent.position + _player.GetForwardDirection() + new Vector3(0, -0.1f, 0);
+            //Vector3 shootDir = shootSrc.position/*.forward*/;
+            //Debug.Log(shootDir);
+            Vector3 shootPos = shootSrc.position;
             // Create the bullet, sets the damage it will cause, and add some velocity to it
-            GameObject go = Instantiate(bulletPrefab, shootPos, Quaternion.Euler(90, 0, 0));
+            GameObject go = Instantiate(bulletPrefab, shootPos, transform.rotation);
+            Debug.Log(go);
             Rigidbody rb = go.GetComponent<Rigidbody>();
             go.GetComponent<Bullet>().SetDamage(damage);
 
-            rb.velocity = (_player.GetForwardDirection() * 40.0f);
+            rb.velocity = (transform.forward * 10.0f);
 
             Debug.Log("Firing " + transform.name);
 
             // Plays weapon's shooting animation
-            _ac.Play("Shoot");
+            //_ac.Play("Shoot");
 
             currentBullets--;
 
-            _as.Stop();
-            _as.clip = shootSnd;
-            _as.Play();
+            //_as.Stop();
+            //_as.clip = shootSnd;
+            //_as.Play();
 
             if (currentBullets > 0)
             {
                 // Enables shooting again depending on cadence value
                 canShoot = false;
-                Invoke("EnableShoot", 1.0f / cadence);
+                Invoke("EnableShoot", 1f / cadence);
             }
             else
             {
@@ -88,9 +91,9 @@ public class FPS_FireWeapon : FPS_Weapon
 
             currentBullets = cartridgeSize;
 
-            _as.Stop();
-            _as.clip = reloadSnd;
-            _as.Play();
+            //_as.Stop();
+            //_as.clip = reloadSnd;
+            //_as.Play();
         }
     }
 
