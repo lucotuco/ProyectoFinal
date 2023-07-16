@@ -66,7 +66,7 @@ public class CameraInteraction : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        Debug.Log("Loaded scene: " + scene.name);
+        //Debug.Log("Loaded scene: " + scene.name);
         if(scene.name=="Escena2")
         {
             Debug.Log("entreeeeeeeeeeeeee2");

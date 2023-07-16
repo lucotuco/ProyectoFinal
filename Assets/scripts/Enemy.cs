@@ -27,21 +27,19 @@ public class Enemy : MonoBehaviour
     {
         agente = GetComponent<NavMeshAgent>();
         _jugador = FindObjectOfType<FPSplayer>();
-        
+        Jugador = GetComponent<Transform>();
+        vidaJugador = FindObjectOfType<FPSplayer>();
+        AnimacionAtaque = GetComponent<Animator>(); 
+        EnemigosActual = FindObjectOfType<SistemaSpawn>();
+        CantEnemigosMatados=FindObjectOfType<SistemaSpawn>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SeDespierta());
-        AttackCooldown=1;
-        Jugador = GetComponent<Transform>();
-        vidaJugador = FindObjectOfType<FPSplayer>();
-        AnimacionAtaque = GetComponent<Animator>();
+        AttackCooldown=1;      
         VidaActualEnemigo=VidaEnemigo;
-        EnemigosActual = FindObjectOfType<SistemaSpawn>();
-        CantEnemigosMatados=FindObjectOfType<SistemaSpawn>();
-        
     }
 
     // Update is called once per frame
@@ -70,8 +68,20 @@ public class Enemy : MonoBehaviour
         //vidaJugador.RecibirDaño(daño,EstaAtacando);
         //Filo.GetComponent<BoxCollider>().isTrigger= false;
     }
-    
 
+    public void Damage(int dmg) {
+        if(VidaActualEnemigo > 0) { 
+            VidaActualEnemigo -= dmg;
+
+            if (VidaActualEnemigo <= 0) {
+                //_ac.Play("Death");
+                Destroy(gameObject);
+                /*EnemigosActual.CantEnemigosActual=EnemigosActual.CantEnemigosActual-1;
+                CantEnemigosMatados.CantMatados=CantEnemigosMatados.CantMatados+1;*/
+            }
+        }
+    }
+    
     void RevisarVidaEnemigo()
     {
         barraVida.value = VidaActualEnemigo;
@@ -113,12 +123,9 @@ public class Enemy : MonoBehaviour
             //Debug.Log("entro al else");
             //EstaAtacando = false;
             AnimacionAtaque.SetBool("Ataca", false); 
-        }
-        
-        
-        
-        
+        }   
     }
+
     IEnumerator Ataca()
     {
         AnimacionAtaque.SetBool("Ataca", true);
@@ -127,21 +134,6 @@ public class Enemy : MonoBehaviour
         //vidaJugador.RecibirDaño(daño,EstaAtacando);
         //Filo.GetComponent<BoxCollider>().isTrigger= false;
     }
-    void Atacas()
-    {
-        AnimacionAtaque.SetBool("Ataca", true);
-        //vidaJugador.RecibirDaño(daño,EstaAtacando);
-        
-    }
  
 }
-    /*public void Damage(int dmg) {
-        if(health > 0) { 
-            health -= dmg;
 
-            if (health <= 0) {
-                _ac.Play("Death");
-            }
-        }
-    }
-*/

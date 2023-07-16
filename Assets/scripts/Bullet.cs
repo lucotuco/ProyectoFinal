@@ -33,7 +33,10 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Enemigo")
         {
             DestroyBullet();
-            Debug.Log("sadsa");
+            Enemy e = collision.transform.gameObject.GetComponent<Enemy>();
+            e.Damage(damage);
+            //Destroy(collision.transform.gameObject);
+            Debug.Log("le pego:)");
         }
     }
     public void SetDamage(int dmg) {

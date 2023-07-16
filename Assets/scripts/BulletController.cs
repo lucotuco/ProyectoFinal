@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
 {
 
     [SerializeField]
-    public float power = 50f;
+    public float power = 30f;
 
     public float lifeTime = 3f;
 
@@ -22,14 +22,7 @@ public class BulletController : MonoBehaviour
         bulletRb.velocity = this.transform.forward * power;
          
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Enemigo")
-        {
-            Destroy(collision.transform.gameObject);
-            Debug.Log("sadsa");
-        }
-    }
+    
 
     // Update is called once per frame
     void FixedUpdate()

@@ -49,13 +49,13 @@ public class FPS_FireWeapon : FPS_Weapon
             Vector3 shootPos = shootSrc.position;
             // Create the bullet, sets the damage it will cause, and add some velocity to it
             GameObject go = Instantiate(bulletPrefab, shootPos, transform.rotation);
-            Debug.Log(go);
+            //Debug.Log(go);
             Rigidbody rb = go.GetComponent<Rigidbody>();
             go.GetComponent<Bullet>().SetDamage(damage);
 
-            rb.velocity = (transform.forward * 10.0f);
+            rb.velocity = (transform.forward * 20.0f);
 
-            Debug.Log("Firing " + transform.name);
+            //Debug.Log("Firing " + transform.name);
 
             // Plays weapon's shooting animation
             //_ac.Play("Shoot");
