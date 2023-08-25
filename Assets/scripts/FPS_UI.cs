@@ -2,33 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FPS_UI : MonoBehaviour
 {
     public static FPS_UI s;
+    public Scene scene;
+      public string EscenaActual;
 
     public Text ammoText;
     private FPS_ShootController _playerFPS;
 
-    private void Awake()
+    public Text mostrarenemigos;
+    public int EnemigosMatados;
+
+    void OnEnable()
     {
-        s = this;
-        _playerFPS = FindObjectOfType<FPS_ShootController>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    // Start is called before the first frame update
-    void Start()
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         
+        
+
+    }
+
+    private void Awake()
+    {
+        mostrarenemigos.text="0/19";
+        s = this;
+        _playerFPS = FindObjectOfType<FPS_ShootController>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        FPS_FireWeapon fw = _playerFPS.GetCurrentWeapon().GetComponent<FPS_FireWeapon>();
+        if(scene.name=="Escena3")
+        {
+            FPS_FireWeapon fw = _playerFPS.GetCurrentWeapon().GetComponent<FPS_FireWeapon>();
         if (fw != null) {
             UpdateAmmoText(fw.GetCurrentBullets(), fw.GetCartridgeSize());
         }
         else UpdateAmmoText(0, 0);
+        }
+        if(scene.name=="Escena2")
+        {
+          
+        }
+         
+      
+    }
+
+    public void actulizarKills()
+    {
+        EnemigosMatados++;
+
+        mostrarenemigos.text=EnemigosMatados + "/ 19";
     }
 
     public void UpdateAmmoText(int currentBullets, int cartridgeSize) {

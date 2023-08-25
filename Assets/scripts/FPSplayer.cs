@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FPSplayer : MonoBehaviour
 {
@@ -49,12 +50,14 @@ public class FPSplayer : MonoBehaviour
 
     public float jump;
     public float gravity;
+    public GameObject imagenMuerte;
 
     Vector3 mov = Vector3.zero;
 
 
     void Awake()
     {
+        imagenMuerte.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         EnemigosActual = FindObjectOfType<SistemaSpawn>();
         _rb = GetComponent<Rigidbody>();
@@ -119,6 +122,9 @@ public class FPSplayer : MonoBehaviour
         if(VidaActualJug<=0)
         {
             //Debug.Log("muerto");
+            imagenMuerte.SetActive(true);
+            StartCoroutine(Respawnea());
+
             return true;
         }
         else
@@ -126,6 +132,15 @@ public class FPSplayer : MonoBehaviour
             //Debug.Log("no muerto");
             return false;
         }
+    }
+
+    IEnumerator Respawnea()
+    {
+        yield return new WaitForSeconds(2f);
+        Debug.Log("Respawnea");
+        SceneManager.LoadScene("Escena2");
+        //vidaJugador.RecibirDaño(daño,EstaAtacando);
+        //Filo.GetComponent<BoxCollider>().isTrigger= false;
     }
 
     public void lol()

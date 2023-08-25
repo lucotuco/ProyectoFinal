@@ -87,6 +87,7 @@ public class Enemy : MonoBehaviour
         barraVida.value = VidaActualEnemigo;
         if(VidaActualEnemigo<=0)
         {
+            FindObjectOfType<FPS_UI>().actulizarKills();
             Destroy(gameObject);
             EnemigosActual.CantEnemigosActual=EnemigosActual.CantEnemigosActual-1;
             CantEnemigosMatados.CantMatados=CantEnemigosMatados.CantMatados+1;
