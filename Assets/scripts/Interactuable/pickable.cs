@@ -27,7 +27,7 @@ IEnumerator PrimeraAccion()
 
     IEnumerator SegundaAccion()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(10.3f);
         SceneManager.LoadScene(sceneName);
     }
 }

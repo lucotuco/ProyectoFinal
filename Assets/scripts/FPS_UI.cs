@@ -15,6 +15,7 @@ public class FPS_UI : MonoBehaviour
 
     public Text mostrarenemigos;
     public int EnemigosMatados;
+    public GameObject imagenInicio;
 
     void OnEnable()
     {
@@ -35,10 +36,19 @@ public class FPS_UI : MonoBehaviour
 
     private void Awake()
     {
+        StartCoroutine(arranca());
         mostrarenemigos.text="0/19";
         s = this;
         _playerFPS = FindObjectOfType<FPS_ShootController>();
        
+    }
+
+    IEnumerator arranca()
+    {   
+        
+        imagenInicio.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        imagenInicio.SetActive(false);
     }
 
     // Update is called once per frame

@@ -74,7 +74,7 @@ public class FPSplayer : MonoBehaviour
     }
     
     private void Update()
-    {
+    {   
         lol();
         if(LaEscenaActual.EscenaActual=="Escena2")
         {

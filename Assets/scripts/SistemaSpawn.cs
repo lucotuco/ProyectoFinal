@@ -33,10 +33,10 @@ public class SistemaSpawn : MonoBehaviour
             StartCoroutine(SpawnerWave());
         }
         
-        /*if(ContadorOleadas==4)
+        if(ContadorOleadas==4)
         {
             siguienteSpawn.SetActive(true);
-        }*/
+        }
         
     }
     IEnumerator SpawnerWave()

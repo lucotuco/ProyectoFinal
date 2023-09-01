@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator SeDespierta()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         Debug.Log("Corrutine"); 
         caminando=true;
         AnimacionAtaque.SetBool("caminando", true);
