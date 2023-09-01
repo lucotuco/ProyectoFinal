@@ -586,6 +586,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'Bip001'\n\tTransform 'Bip001 R Foot'\n\tTransform
+        'Bip001 R Toe0'\n\tTransform 'Bip001 R UpperArm'\n\tTransform 'Bip001 R Calf'\n\tTransform
+        'Bip001 L Toe0'\n\tTransform 'Bip001 Head'\n\tTransform 'Bip001 L UpperArm'\n\tTransform
+        'Bip001 Neck'\n\tTransform 'Bip001 Spine'\n\tand more ...\n\tFrom animation
+        clip 'Despertarse'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
@@ -692,7 +702,8 @@ MonoBehaviour:
   AnimacionAtaque: {fileID: 6758135178894764691}
   EstaAtacando: 0
   vidaJugador: {fileID: 0}
-  "da\xF1o": 9
+  "da\xF1o": 2
   distanciaAtaque: 3
   distanciaJugador: 0
   AttackCooldown: 0
+  caminando: 0

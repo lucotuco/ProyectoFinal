@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     public float distanciaJugador;
     public float AttackCooldown;
     float lastAtackTime;
+    public bool caminando;
     
     void Awake()
     {
@@ -62,8 +63,9 @@ public class Enemy : MonoBehaviour
 
     IEnumerator SeDespierta()
     {
+        yield return new WaitForSeconds(3);
         Debug.Log("Corrutine"); 
-        yield return new WaitForSeconds(2);
+        caminando=true;
         AnimacionAtaque.SetBool("caminando", true);
         //vidaJugador.RecibirDaño(daño,EstaAtacando);
         //Filo.GetComponent<BoxCollider>().isTrigger= false;
@@ -85,7 +87,7 @@ public class Enemy : MonoBehaviour
     void RevisarVidaEnemigo()
     {
         barraVida.value = VidaActualEnemigo;
-        if(VidaActualEnemigo<=0)
+        if(VidaActualEnemigo<=0 && caminando)
         {
             FindObjectOfType<FPS_UI>().actulizarKills();
             Destroy(gameObject);
@@ -96,7 +98,7 @@ public class Enemy : MonoBehaviour
 
     void RevisarVidaJugador ()
     {
-        if(vidaJugador.VidaActualJug>0)
+        if(vidaJugador.VidaActualJug>0 && caminando)
         {
             Vector3 PosJugador= new Vector3(Jugador.position.x, transform.position.y, Jugador.position.z);
             transform.LookAt(PosJugador);
@@ -118,6 +120,7 @@ public class Enemy : MonoBehaviour
             AnimacionAtaque.SetBool("Ataca", true);
             vidaJugador.RecibirDaño(daño);
             lastAtackTime = Time.time;
+            
         }
         else
         {
