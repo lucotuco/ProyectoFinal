@@ -63,10 +63,11 @@ public class Enemy : MonoBehaviour
 
     IEnumerator SeDespierta()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         Debug.Log("Corrutine"); 
-        caminando=true;
+        
         AnimacionAtaque.SetBool("caminando", true);
+        caminando=true;
         //vidaJugador.RecibirDaño(daño,EstaAtacando);
         //Filo.GetComponent<BoxCollider>().isTrigger= false;
     }
@@ -111,21 +112,24 @@ public class Enemy : MonoBehaviour
     void RevisarAtaque()
     {
         distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
-        
-        if(distanciaJugador<=distanciaAtaque)
+        if(distanciaJugador<=distanciaAtaque )
         {
-        if (Time.time - lastAtackTime < AttackCooldown) return;
-
+            
+        if((Time.time - lastAtackTime) > AttackCooldown)
+        {   
+            Debug.Log("lol");   
             //StartCoroutine(Ataca());
             AnimacionAtaque.SetBool("Ataca", true);
             vidaJugador.RecibirDaño(daño);
             lastAtackTime = Time.time;
             
         }
+        
+        }
+        
         else
         {
-            //Debug.Log("entro al else");
-            //EstaAtacando = false;
+            Debug.Log("suesi2"); 
             AnimacionAtaque.SetBool("Ataca", false); 
         }   
     }

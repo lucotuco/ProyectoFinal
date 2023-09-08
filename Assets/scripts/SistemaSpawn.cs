@@ -33,7 +33,7 @@ public class SistemaSpawn : MonoBehaviour
             StartCoroutine(SpawnerWave());
         }
         
-        if(ContadorOleadas==4)
+        if(ContadorOleadas==5)
         {
             siguienteSpawn.SetActive(true);
         }
