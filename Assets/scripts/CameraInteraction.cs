@@ -81,7 +81,7 @@ public class CameraInteraction : MonoBehaviour
     {
         Debug.Log("Ataque");
         hit.transform.GetComponent<Interactable>().Interact();
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.45f);
         //Filo.GetComponent<BoxCollider>().isTrigger= false;
     }
 }

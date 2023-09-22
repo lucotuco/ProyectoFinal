@@ -120,7 +120,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("lol");   
             //StartCoroutine(Ataca());
             AnimacionAtaque.SetBool("Ataca", true);
-            vidaJugador.RecibirDaño(daño);
+            //vidaJugador.RecibirDaño(daño);
             lastAtackTime = Time.time;
             
         }
@@ -132,6 +132,14 @@ public class Enemy : MonoBehaviour
             Debug.Log("suesi2"); 
             AnimacionAtaque.SetBool("Ataca", false); 
         }   
+    }
+
+    public void EventoAtaque()
+    {
+        if(distanciaJugador<=distanciaAtaque ){
+            
+        }
+        vidaJugador.RecibirDaño(daño);
     }
 
     IEnumerator Ataca()

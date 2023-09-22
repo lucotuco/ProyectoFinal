@@ -20,7 +20,7 @@ public class SistemaSpawn : MonoBehaviour
     void Start()
     {   
         ContadorOleadas=0;
-        EnemigosXoleada=3;
+        EnemigosXoleada=2;
         Spawneando=false;
         siguienteSpawn.SetActive(false);
         EnemyType=0;
