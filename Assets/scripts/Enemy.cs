@@ -118,20 +118,24 @@ public class Enemy : MonoBehaviour
         if((Time.time - lastAtackTime) > AttackCooldown)
         {   
             Debug.Log("lol");   
-            //StartCoroutine(Ataca());
             AnimacionAtaque.SetBool("Ataca", true);
-            //vidaJugador.RecibirDaño(daño);
+            caminando = false;
             lastAtackTime = Time.time;
-            
+            StartCoroutine(sape());
         }
-        
         }
-        
         else
         {
             Debug.Log("suesi2"); 
-            AnimacionAtaque.SetBool("Ataca", false); 
+            StartCoroutine(sape());     
         }   
+    }
+
+    IEnumerator sape()
+    {
+        yield return new WaitForSeconds(1);
+        AnimacionAtaque.SetBool("Ataca", false);
+        caminando = true; 
     }
 
     public void EventoAtaque()

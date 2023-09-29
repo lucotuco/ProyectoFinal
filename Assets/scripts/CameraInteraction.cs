@@ -10,6 +10,8 @@ public class CameraInteraction : MonoBehaviour
     public GameObject machete;
     public Scene scene;
     public string EscenaActual;
+    public pickable pickeable; 
+    public FPSplayer jugador;
     
     
     // Start is called before the first frame update
@@ -72,6 +74,11 @@ public class CameraInteraction : MonoBehaviour
             Debug.Log("entreeeeeeeeeeeeee2");
             EscenaActual=scene.name;
             machete = GameObject.Find("MAchetePivot");
+        }
+        if(scene.name=="Escena1" && pickeable != null && pickeable.volvio==1)
+        {
+            jugador.transform.position=pickeable.posicionJugador;
+            Debug.Log("zaza");
         }
         
 
