@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.62658924, g: 0.6338526, b: 0.711948, a: 1}
+  m_IndirectSpecularColor: {r: 0.62601817, g: 0.6332831, b: 0.71137977, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1089,8 +1089,8 @@ MonoBehaviour:
   PosJugador: {fileID: 1918900917}
   posPP: {fileID: 1918900917}
   rotSpeed: 1
-  rotMin: -50
-  rotMax: 50
+  rotMin: -40
+  rotMax: 40
   target: {fileID: 650927899}
   player: {fileID: 1918900917}
 --- !u!1001 &508360527
@@ -3865,7 +3865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918900911}
   m_LocalRotation: {x: -0, y: -0.9962965, z: -0, w: 0.0859839}
-  m_LocalPosition: {x: -7.91, y: 3.867, z: -35.86}
+  m_LocalPosition: {x: -7.91, y: 3.29, z: -35.86}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3897,15 +3897,15 @@ MonoBehaviour:
   Enemigo: {fileID: 445337245583356585, guid: 3d7a7d21d9ad2c049a0ac86a997b54bb, type: 3}
   "da\xF1o": 0
   LaEscenaActual: {fileID: 0}
-  walk_speed: 4.1
-  backwards_walk_speed: 6.5
+  walk_speed: 2.67
+  backwards_walk_speed: 2.69
   strafe_speed: 6.7
   jump_force: 3.8
   pistol: {fileID: 0}
   speedH: 2
   speedV: 2
-  rotmax: 65
-  rotMin: -65
+  rotmax: 38
+  rotMin: -38
   jump: 8
   gravity: 20
   imagenMuerte: {fileID: 2097326092}
@@ -3927,6 +3927,8 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   EscenaActual: 
+  pickeable: {fileID: 0}
+  jugador: {fileID: 0}
 --- !u!143 &1918900921
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3942,7 +3944,7 @@ CharacterController:
   m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.04
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1969764017
@@ -8047,6 +8049,8 @@ MonoBehaviour:
   jugadora: {fileID: 2097326092}
   texto: {fileID: 770117459}
   sceneName: Escena2
+  posicionJugador: {x: 0, y: 0, z: 0}
+  volvio: 0
 --- !u!65 &5722946695810566322
 BoxCollider:
   m_ObjectHideFlags: 0

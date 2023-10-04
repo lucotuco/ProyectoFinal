@@ -17,7 +17,7 @@ public class FPSplayer : MonoBehaviour
     public float velocidadJugador;
     public int VidaJugador = 1000;
     public int VidaActualJug;
-    public float velocidadCorrer=10f;
+    public float velocidadCorrer;
     public Slider BarraVida;
     public Enemy Enemigo;
     [SerializeField] public int daño;
@@ -68,8 +68,9 @@ public class FPSplayer : MonoBehaviour
     bool isGrounded= false;
 
     void Start()
-    {
-         cc = GetComponent<CharacterController>();
+    {   
+        velocidadCorrer=velocidadJugador*2;
+        cc = GetComponent<CharacterController>();
         VidaActualJug= VidaJugador;
     }
     
