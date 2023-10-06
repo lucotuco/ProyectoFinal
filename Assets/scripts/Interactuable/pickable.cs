@@ -22,7 +22,7 @@ IEnumerator PrimeraAccion()
         texto.SetActive(false);
         jugador.SetActive(false);
         jugadora.SetActive(true);
-        posicionJugador= jugador.transform.position;
+        posicionJugador = jugador.transform.position;
         volvio=1;
         yield return StartCoroutine(SegundaAccion()); // Esperar a que se complete la segunda acción
 

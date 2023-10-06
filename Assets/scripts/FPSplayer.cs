@@ -22,6 +22,7 @@ public class FPSplayer : MonoBehaviour
     public Enemy Enemigo;
     [SerializeField] public int daño;
     public CameraInteraction LaEscenaActual;
+    
 
     #region Movement
     [Range(1.0f, 10.0f)]
@@ -63,6 +64,7 @@ public class FPSplayer : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         Enemigo = FindObjectOfType<Enemy>();
+        
         LaEscenaActual = FindObjectOfType<CameraInteraction>();
     }
     bool isGrounded= false;

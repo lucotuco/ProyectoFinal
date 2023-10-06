@@ -11,12 +11,14 @@ public class ObjectController : MonoBehaviour
     {
         myTransform = transform;
         initialPosition = ObjectPositionManager.instance.LoadObjectPosition(gameObject.name);
+        Debug.Log(initialPosition);
         myTransform.position = initialPosition;
     }
 
     // Llamado antes de cambiar de escena
     private void OnDestroy()
     {
+        Debug.Log(myTransform.position);
         ObjectPositionManager.instance.SaveObjectPosition(gameObject.name, myTransform.position);
     }
 }
