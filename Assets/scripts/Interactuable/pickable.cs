@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class pickable : Interactable
 {   
     public GameObject jugador;
+    public SceneManagementScript SceneManagementScript;
     public GameObject jugadora;
     public GameObject texto;
     public string sceneName;
@@ -32,6 +33,8 @@ IEnumerator PrimeraAccion()
     IEnumerator SegundaAccion()
     {
         yield return new WaitForSeconds(10.3f);
+        SceneManagementScript.isObjectActive = false;
+        Debug.Log(SceneManagementScript.isObjectActive);
         SceneManager.LoadScene(sceneName);
     }
 }

@@ -6,12 +6,12 @@ public class ObjectController : MonoBehaviour
 {
     private Transform myTransform;
     private Vector3 initialPosition;
+    public GameObject canvas;
 
     private void Start()
     {
         myTransform = transform;
         initialPosition = ObjectPositionManager.instance.LoadObjectPosition(gameObject.name);
-        Debug.Log(initialPosition);
         myTransform.position = initialPosition;
     }
 
@@ -20,5 +20,13 @@ public class ObjectController : MonoBehaviour
     {
         Debug.Log(myTransform.position);
         ObjectPositionManager.instance.SaveObjectPosition(gameObject.name, myTransform.position);
+    }
+    public void llamdaBoton()
+    {
+        myTransform = transform;
+        Debug.Log("sas");
+        initialPosition = ObjectPositionManager.instance.LoadObjectPosition(gameObject.name);
+        myTransform.position = initialPosition;
+        canvas.SetActive(false);
     }
 }

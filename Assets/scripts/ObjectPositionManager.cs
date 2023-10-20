@@ -30,4 +30,5 @@ public class ObjectPositionManager : MonoBehaviour
         float z = PlayerPrefs.GetFloat(objectName + "_z", -35.77855682373047f);
         return new Vector3(x, y, z);
     }
+    
 }
