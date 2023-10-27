@@ -6,6 +6,8 @@ public class ObjectPositionManager : MonoBehaviour
 {
     public static ObjectPositionManager instance;
 
+    private Dictionary<string, Vector3> objectPositions = new Dictionary<string, Vector3>();
+
     private void Awake()
     {
         if (instance == null)
@@ -13,22 +15,30 @@ public class ObjectPositionManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SaveObjectPosition(string objectName, Vector3 position)
     {
-        PlayerPrefs.SetFloat(objectName + "_x", position.x);
-        PlayerPrefs.SetFloat(objectName + "_y", position.y);
-        PlayerPrefs.SetFloat(objectName + "_z", position.z);
+        if (!objectPositions.ContainsKey(objectName))
+        {
+            objectPositions.Add(objectName, position);
+        }
+        else
+        {
+            objectPositions[objectName] = position;
+        }
     }
 
     public Vector3 LoadObjectPosition(string objectName)
     {
-        float x = PlayerPrefs.GetFloat(objectName + "_x", -7.909999847412109f);
-        float y = PlayerPrefs.GetFloat(objectName + "_y", 3.309000015258789f);
-        float z = PlayerPrefs.GetFloat(objectName + "_z", -35.77855682373047f);
-        return new Vector3(x, y, z);
+        if (objectPositions.ContainsKey(objectName))
+        {
+            return objectPositions[objectName];
+        }
+        return Vector3.zero;
     }
-    
 }

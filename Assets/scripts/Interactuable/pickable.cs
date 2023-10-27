@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class pickable : Interactable
 {   
+    public Transform myTransform;
     public GameObject jugador;
-    public SceneManagementScript SceneManagementScript;
     public GameObject jugadora;
     public GameObject texto;
     public string sceneName;
@@ -17,13 +17,14 @@ public class pickable : Interactable
         base.Interact();
         StartCoroutine(PrimeraAccion());
     }
+
+    
 IEnumerator PrimeraAccion()
     {
-        yield return new WaitForSeconds(0); // Esperar durante 2 segundos
+        
         texto.SetActive(false);
         jugador.SetActive(false);
         jugadora.SetActive(true);
-        posicionJugador = jugador.transform.position;
         volvio=1;
         yield return StartCoroutine(SegundaAccion()); // Esperar a que se complete la segunda acción
 
@@ -32,9 +33,8 @@ IEnumerator PrimeraAccion()
 
     IEnumerator SegundaAccion()
     {
+        
         yield return new WaitForSeconds(10.3f);
-        SceneManagementScript.isObjectActive = false;
-        Debug.Log(SceneManagementScript.isObjectActive);
         SceneManager.LoadScene(sceneName);
     }
 }

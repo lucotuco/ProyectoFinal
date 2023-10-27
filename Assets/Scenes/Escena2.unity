@@ -1848,6 +1848,8 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   EscenaActual: 
+  pickeable: {fileID: 0}
+  jugador: {fileID: 0}
 --- !u!136 &1580585934
 CapsuleCollider:
   m_ObjectHideFlags: 0

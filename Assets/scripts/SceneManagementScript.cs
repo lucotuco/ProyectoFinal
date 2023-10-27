@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneManagementScript : MonoBehaviour
 {
-    public GameObject objectToDisable;
-    public static bool isObjectActive=true;
+    public GameObject objectToDeactivate;
+    public GameObject objectToActivate;
+    public static int loadCount = 0;
 
-private void Star()
-{
-    Debug.Log(isObjectActive);
-    if(isObjectActive==false)
+    private void Awake()
     {
-        Debug.Log("sap");
-        objectToDisable.SetActive(false);
+        if (loadCount >= 1)
+        {
+            if (objectToDeactivate != null)
+            {
+                objectToDeactivate.SetActive(false);
+                objectToActivate.SetActive(true);
+            }
+        }
+
+        loadCount++;
     }
-      
-}  
-    
 }
