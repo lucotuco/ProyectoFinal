@@ -15,10 +15,6 @@ public class ObjectPositionManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void SaveObjectPosition(string objectName, Vector3 position)

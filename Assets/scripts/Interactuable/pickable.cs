@@ -9,6 +9,7 @@ public class pickable : Interactable
     public GameObject jugador;
     public GameObject jugadora;
     public GameObject texto;
+    public Animator AnimacionCanvas;
     public string sceneName;
     public Vector3 posicionJugador;
     public int volvio;
@@ -26,15 +27,19 @@ IEnumerator PrimeraAccion()
         jugador.SetActive(false);
         jugadora.SetActive(true);
         volvio=1;
-        yield return StartCoroutine(SegundaAccion()); // Esperar a que se complete la segunda acción
+        Invoke("AnimacionCanvass",2.21f);
+        yield return StartCoroutine(SegundaAccion()); // Esperar a que se complete la segunda acción   
+    }
 
-       
+    void AnimacionCanvass()
+    {
+        AnimacionCanvas.SetBool("Activa", true);
     }
 
     IEnumerator SegundaAccion()
     {
         
-        yield return new WaitForSeconds(10.3f);
+        yield return new WaitForSeconds(4.21f);
         SceneManager.LoadScene(sceneName);
     }
 }

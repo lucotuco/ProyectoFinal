@@ -15,12 +15,13 @@ public class ObjectController : MonoBehaviour
     }
 
     private void OnDestroy()
-{
-    if (ObjectPositionManager.instance != null)
     {
-        ObjectPositionManager.instance.SaveObjectPosition(gameObject.name, myTransform.position);
+        if (ObjectPositionManager.instance != null)
+        {
+            ObjectPositionManager.instance.SaveObjectPosition(gameObject.name, myTransform.position);
+        }
     }
-}
+    
     public void llamdaBoton()
     {
         myTransform = transform;
