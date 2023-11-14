@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
     void RevisarAtaque()
     {
         distanciaJugador= Vector3.Distance(_jugador.transform.position, transform.position);
-        if(distanciaJugador<=distanciaAtaque )
+        if(distanciaJugador<distanciaAtaque )
         {
             Debug.Log("entroParcial");
             if((Time.time - lastAtackTime) > AttackCooldown)
@@ -132,7 +132,7 @@ public class Enemy : MonoBehaviour
     IEnumerator sape()
     {   
         Debug.Log("Debug antes");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2f);
         Debug.Log("Debug dsp");
         AnimacionAtaque.SetBool("Ataca", false);
         caminando = true; 
