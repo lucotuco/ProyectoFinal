@@ -14,7 +14,7 @@ public class FPS_UI : MonoBehaviour
     public Text mostrarenemigos;
     public int EnemigosMatados;
     public GameObject imagenInicio;
-    public GameObject imagenSangre;
+    
 
     void OnEnable()
     {
@@ -50,17 +50,6 @@ public class FPS_UI : MonoBehaviour
         imagenInicio.SetActive(false);
     }
 
-    public void Sangre()
-    {
-        if (imagenSangre.activeSelf)
-        {
-            imagenSangre.SetActive(false);
-        }
-        else
-        {
-            imagenSangre.SetActive(true);
-        }
-    }
 
     // Update is called once per frame
     void Update()

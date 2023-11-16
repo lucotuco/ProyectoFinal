@@ -28,11 +28,10 @@ public class CameraInteraction : MonoBehaviour
         if(Input.GetButtonDown("Interactable"))
         {
             RaycastHit hit;
-        if(Physics.Raycast(camera.position,camera.forward,out hit, rayDistance, LayerMask.GetMask("Interactable")))
-        {
-           // Debug.Log(hit.transform.name);
-           hit.transform.GetComponent<Interactable>().Interact();
-        } 
+            if(Physics.Raycast(camera.position,camera.forward,out hit, rayDistance, LayerMask.GetMask("Interactable")))
+            {
+                hit.transform.GetComponent<Interactable>().Interact();
+            } 
         }
         
         if(EscenaActual=="Escena2")

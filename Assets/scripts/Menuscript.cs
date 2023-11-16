@@ -8,6 +8,7 @@ public class Menuscript : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Escena1");
+        Screen.SetResolution(1920, 1080, true);
     }
 
     // Update is called once per frame

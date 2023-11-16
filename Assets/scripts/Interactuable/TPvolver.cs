@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class TPvolver : Interactable
 {
-    public GameObject jugador;
-    public GameObject texto;
     public string sceneName;
     public override void Interact()
     {
         base.Interact();
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("Escena1");
     }
 }

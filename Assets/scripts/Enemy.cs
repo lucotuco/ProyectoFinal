@@ -118,7 +118,6 @@ public class Enemy : MonoBehaviour
             {   
                 Debug.Log("lol");   
                 AnimacionAtaque.SetTrigger("Ataque");
-                CanvasJugador.Sangre();
                 caminando = false;
                 lastAtackTime = Time.time;
                 Invoke("FixEnemigo",0.3f);
@@ -129,7 +128,6 @@ public class Enemy : MonoBehaviour
     void FixEnemigo()
     {
         caminando = true; 
-        CanvasJugador.Sangre();
     }
     IEnumerator sape()
     {   
