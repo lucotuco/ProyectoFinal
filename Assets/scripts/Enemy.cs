@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     public float AttackCooldown;
     float lastAtackTime;
     public bool caminando;
+    public FPS_UI CanvasJugador;
     
     void Awake()
     {
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
         AnimacionAtaque = GetComponent<Animator>(); 
         EnemigosActual = FindObjectOfType<SistemaSpawn>();
         CantEnemigosMatados=FindObjectOfType<SistemaSpawn>();
+        CanvasJugador = FindObjectOfType<FPS_UI>();
     }
 
     // Start is called before the first frame update
@@ -115,27 +117,26 @@ public class Enemy : MonoBehaviour
             if((Time.time - lastAtackTime) > AttackCooldown)
             {   
                 Debug.Log("lol");   
-                AnimacionAtaque.SetBool("Ataca", true);
-                EventoAtaque();
+                AnimacionAtaque.SetTrigger("Ataque");
+                CanvasJugador.Sangre();
                 caminando = false;
                 lastAtackTime = Time.time;
-                StartCoroutine(sape());
+                Invoke("FixEnemigo",0.3f);
             }
         }
-        else
-        {
-            Debug.Log("suesi2"); 
-            StartCoroutine(sape());     
-        }   
     }
 
+    void FixEnemigo()
+    {
+        caminando = true; 
+        CanvasJugador.Sangre();
+    }
     IEnumerator sape()
     {   
         Debug.Log("Debug antes");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("Debug dsp");
-        AnimacionAtaque.SetBool("Ataca", false);
-        caminando = true; 
+        
     }
 
     public void EventoAtaque()

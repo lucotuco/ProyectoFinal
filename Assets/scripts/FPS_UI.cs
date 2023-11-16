@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,14 +8,13 @@ public class FPS_UI : MonoBehaviour
 {
     public static FPS_UI s;
     public Scene scene;
-      public string EscenaActual;
-
+    public string EscenaActual;
     public Text ammoText;
     private FPS_ShootController _playerFPS;
-
     public Text mostrarenemigos;
     public int EnemigosMatados;
     public GameObject imagenInicio;
+    public GameObject imagenSangre;
 
     void OnEnable()
     {
@@ -49,6 +48,18 @@ public class FPS_UI : MonoBehaviour
         imagenInicio.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         imagenInicio.SetActive(false);
+    }
+
+    public void Sangre()
+    {
+        if (imagenSangre.activeSelf)
+        {
+            imagenSangre.SetActive(false);
+        }
+        else
+        {
+            imagenSangre.SetActive(true);
+        }
     }
 
     // Update is called once per frame
