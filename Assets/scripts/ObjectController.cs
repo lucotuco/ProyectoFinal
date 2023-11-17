@@ -21,7 +21,9 @@ public class ObjectController : MonoBehaviour
             ObjectPositionManager.instance.SaveObjectPosition(gameObject.name, myTransform.position);
         }
     }
-    
+   
+
+
     public void llamdaBoton()
     {
         myTransform = transform;

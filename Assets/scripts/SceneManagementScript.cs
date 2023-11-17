@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class SceneManagementScript : MonoBehaviour
 {
     public GameObject objectToDeactivate;
+    public GameObject objectToActivate1;
+    public GameObject objectToDeactivate2;
+    public GameObject objectToDeactivate3;
     public GameObject objectToActivate;
     public static int loadCount = 0;
 
@@ -15,6 +18,9 @@ public class SceneManagementScript : MonoBehaviour
         {
             if (objectToDeactivate != null)
             {
+                objectToActivate1.SetActive(true);
+                objectToDeactivate2.SetActive(false);
+                objectToDeactivate3.SetActive(false);
                 objectToDeactivate.SetActive(false);
                 objectToActivate.SetActive(true);
             }

@@ -13,6 +13,7 @@ public class pickable : Interactable
     public string sceneName;
     public Vector3 posicionJugador;
     public int volvio;
+    public GameObject textoCanvas;
     public override void Interact()
     {
         base.Interact();
@@ -20,20 +21,21 @@ public class pickable : Interactable
     }
 
     
-IEnumerator PrimeraAccion()
+    IEnumerator PrimeraAccion()
     {
         
         texto.SetActive(false);
         jugador.SetActive(false);
         jugadora.SetActive(true);
         volvio=1;
-        Invoke("AnimacionCanvass",2.21f);
+        Invoke("AnimacionCanvass",2f);
         yield return StartCoroutine(SegundaAccion()); // Esperar a que se complete la segunda acción   
     }
 
     void AnimacionCanvass()
     {
         AnimacionCanvas.SetBool("Activa", true);
+        textoCanvas.SetActive(true);
     }
 
     IEnumerator SegundaAccion()

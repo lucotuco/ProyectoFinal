@@ -26,7 +26,6 @@ public class FPS_ShootController : MonoBehaviour
 
         if (mouseLeftClick || mouseLeftHold)
         {
-            
             currentWeapon.Fire();
         }
 
@@ -47,10 +46,10 @@ public class FPS_ShootController : MonoBehaviour
         {
             ChangeWeapon(1);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        /*if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             ChangeWeapon(2);
-        }
+        }*/
 
     }
 

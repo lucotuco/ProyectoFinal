@@ -35,7 +35,7 @@ public class FPS_FireWeapon : FPS_Weapon
     void Update()
     {
         //Debug.Log(currentBullets);
-        //FPS_UI.s.UpdateAmmoText(currentBullets, cartridgeSize);
+        FPS_UI.s.UpdateAmmoText(currentBullets, cartridgeSize);
     }
 
     public override void Fire()
@@ -58,7 +58,7 @@ public class FPS_FireWeapon : FPS_Weapon
             //Debug.Log("Firing " + transform.name);
 
             // Plays weapon's shooting animation
-            //_ac.Play("Shoot");
+            _ac.SetTrigger("Shoot");
 
             currentBullets--;
 

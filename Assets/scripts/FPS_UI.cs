@@ -36,7 +36,7 @@ public class FPS_UI : MonoBehaviour
     private void Awake()
     {
         StartCoroutine(arranca());
-        mostrarenemigos.text="0/19";
+        mostrarenemigos.text="0/16";
         s = this;
         _playerFPS = FindObjectOfType<FPS_ShootController>();
        
@@ -57,10 +57,11 @@ public class FPS_UI : MonoBehaviour
         if(scene.name=="Escena3")
         {
             FPS_FireWeapon fw = _playerFPS.GetCurrentWeapon().GetComponent<FPS_FireWeapon>();
-        if (fw != null) {
-            UpdateAmmoText(fw.GetCurrentBullets(), fw.GetCartridgeSize());
-        }
-        else UpdateAmmoText(0, 0);
+            if (fw != null) 
+            {
+                UpdateAmmoText(fw.GetCurrentBullets(), fw.GetCartridgeSize());
+            }
+            else UpdateAmmoText(0, 0);
         }
         if(scene.name=="Escena2")
         {
@@ -74,7 +75,7 @@ public class FPS_UI : MonoBehaviour
     {
         EnemigosMatados++;
 
-        mostrarenemigos.text=EnemigosMatados + "/ 19";
+        mostrarenemigos.text=EnemigosMatados + "/ 16";
     }
 
     public void UpdateAmmoText(int currentBullets, int cartridgeSize) {

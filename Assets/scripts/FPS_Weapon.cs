@@ -32,23 +32,11 @@ public abstract class FPS_Weapon : MonoBehaviour
         _player = _player.GetComponent<FPSplayer>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public abstract void Fire();
 
     public virtual void ShowWeapon() {
 
-        _ac.Play("Show");
+        _ac.SetTrigger("Show");
 
         canShoot = false;
         Invoke("EnableShoot", equipTime);
